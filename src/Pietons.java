@@ -1,3 +1,5 @@
+import static java.lang.Math.*;
+
 public class Pietons {
     private boolean enMovementP;
     private double axeXP;
@@ -32,4 +34,21 @@ public class Pietons {
         else
             return this.enMovementP= false;
     }
-}
+    public void run() {
+        while(enMovementP) {
+            this.axeXP+=1;
+            this.axeYP+=1;
+            System.out.println( " traverse.");
+            try {
+                Thread.sleep(1000); // Simule un délai d'une seconde entre chaque traversée
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    }
+
+
+
+

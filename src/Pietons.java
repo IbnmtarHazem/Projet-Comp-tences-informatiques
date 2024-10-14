@@ -77,6 +77,18 @@ public class Pietons extends Thread {
         double dy = vehicule.getAxeYV() - this.axeYP;
         return atan2(dy, dx);
     }
+    public boolean verifierArretPP(Pietons autrePietons, double distanceSeuilPP, double angleSeuilPP) {
+        double distancePP = calculerDistancePP(autrePietons);  // Calculer la distance entre les deux piétons
+        double anglePP = toDegrees(calculerAnglePP(autrePietons));  // Calculer l'angle entre les deux piétons et convertir en degrés
+
+        // Si la distance et l'angle sont inférieurs aux seuils, le piéton doit s'arrêter
+        if (distancePP <= distanceSeuilPP && abs(anglePP) <= angleSeuilPP) {
+            return this.enMovementP = false;  // Le piéton s'arrête
+        } else {
+            return this.enMovementP = true;  // Le piéton continue à se déplacer
+        }
+    }
+
 
     // Méthode run() pour gérer le mouvement du piéton
     @Override

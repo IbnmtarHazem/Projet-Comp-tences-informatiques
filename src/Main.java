@@ -12,7 +12,8 @@ public class Main {
         System.out.println(v.calculerAngle(p));
         System.out.println(v.verifierArret(p,3,180));*/
         Thread threadVehicules=new Thread();
-        threadVehicules.start();
+        Pietons p1=new Pietons();
+        p1.start();
 
     }
 }
